@@ -1,0 +1,28 @@
+logging:
+  level:
+    ROOT: ERROR
+    fr.ratp.ust: ERROR
+
+spring:
+  profiles:
+    active: dev
+    include:
+      - swagger
+      # Uncomment to activate TLS for the dev profile
+      #- tls
+  jackson:
+    serialization:
+      indent-output: true
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://127.0.0.1:5432/test
+    username: postgres
+    password: root
+    hikari:
+      poolName: Hikari
+      auto-commit: false
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create
